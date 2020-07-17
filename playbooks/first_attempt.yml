@@ -1,0 +1,20 @@
+- name: VLAN Configuraiton Aruba
+  connection: local
+  gather_facts: false
+  hosts: all
+  tasks:
+        - name: Create VLAN 569
+          arubaoss_vlan:
+             vlan_id: 569
+             name: "vlan569"
+             config: "create"
+             command: config_vlan
+
+
+
+
+
+         - name: Execute show running-config and show version commands and output results to file
+           arubaoss_command:
+               commands: ['show run', 'show verison']
+               output_file: /home/activelan/config_list.cfg
